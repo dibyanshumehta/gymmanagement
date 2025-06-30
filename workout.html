@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Any Time Fitness Gym</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+  <div class="dashboard-header">
+    <h1>Any Time Fitness Gym</h1>
+    <!-- Notification Icon -->
+    <ion-icon name="notifications-outline" class="icon-btn" id="notif-toggle"></ion-icon>
+    <!-- Hamburger Menu Icon -->
+    <ion-icon name="menu-outline" class="icon-btn" id="menu-toggle"></ion-icon>
+    <button id="logout-btn">Logout</button>
+  </div>
+      
+      
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <span class="close-btn" id="close-sidebar">
+          <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <ul>
+          <li onclick="location.href='dashboard.html'">
+            <ion-icon name="home-outline"></ion-icon> Home
+          </li>
+          <li onclick="location.href='payment.html'">
+            <ion-icon name="card-outline"></ion-icon> Payments
+          </li>
+          <li class="active">
+            <ion-icon name="barbell-outline"></ion-icon> Workout Routine
+          </li>
+          <li onclick="location.href='diet.html'">
+            <ion-icon name="restaurant-outline"></ion-icon> Diet Log
+          </li>
+          <li onclick="location.href='store.html'">
+            <ion-icon name="cart-outline"></ion-icon> Store
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Section -->
+    <div class="main-section">
+      <!-- Workout Routine Section -->
+      <div class="workout-box">
+        <h2>Workout Routine</h2>
+        <hr style="border: 1px solid #32cd32; margin-bottom: 15px;" />
+        <textarea id="workout-input" rows="4" placeholder="Enter your workout here..." class="workout-textarea"></textarea>
+        <button id="add-workout-btn" class="workout-btn">Add Workout</button>
+        <div id="wkorkout-list" class="workout-list">
+          <!-- JS se boxes yaha append honge -->
+        </div>
+        <h2>Workout Preview</h2>
+        <!-- Display workouts -->
+        <div id="workout-list" class="workout-list"></div>
+      </div>
+
+      <!-- Notifications Section -->
+      <section class="notification-section">
+        <h3>Notifications</h3>
+        <div id="notification-list" class="notification-list">
+          <!-- Notification boxes will be injected here -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="workout.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

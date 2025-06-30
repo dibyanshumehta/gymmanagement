@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Portal | Any Time Fitness Gym</title>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="dashboard-header">
+    <h1>Any Time Fitness Gym</h1>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <!-- Members Modal -->
+  <div id="member-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal" class="close-btn">&times;</span>
+      <h3><ion-icon name="list-outline"></ion-icon> All Members</h3>
+      <ul id="member-list"></ul>
+    </div>
+  </div>
+
+  <!-- Notes Modal -->
+  <div id="note-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-note-modal" class="close-btn">&times;</span>
+      <h3><ion-icon name="document-outline"></ion-icon> Saved Notes</h3>
+      <div id="note-display" class="note-display-area">
+        <p>Loading notes...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-container">
+    <!-- Side Bar -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li class="tab active" data-tab="home">Home</li>
+          <li class="tab" data-tab="payments">Payments</li>
+          <li class="tab" data-tab="notifications">Notification</li>
+          <li class="tab" data-tab="store">Store</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Section -->
+    <div class="admin-box">
+      <!-- Home Tab -->
+      <div id="home" class="tab-content active">
+        <div class="home-header">
+          <h1>Hello, <span style="color: #32cd32;" id="admin-name">Admin</span></h1>
+          <h3>Welcome to Admin Portal</h3>
+        </div>
+
+        <!-- Summary Box -->
+        <div class="summary-box">
+          <h3><ion-icon name="people-outline"></ion-icon> Total Members: <span id="total-members">0</span></h3>
+          <button id="view-members-btn">See Details</button>
+        </div>
+
+        <!-- Admin Notes Section -->
+        <div class="admin-notes">
+          <h3><ion-icon name="document-text-outline"></ion-icon> Notes</h3>
+          <textarea id="note-input" placeholder="Write your notes here..."></textarea>
+          <div style="margin-top: 10px; display: flex; gap: 10px;">
+            <button id="save-note-btn">Save Note</button>
+            <button id="view-notes-btn">View Saved Notes</button>
+          </div>
+          <p id="note-status" class="note-status"></p>
+        </div>
+
+        <!-- Feedback Preview Section -->
+        <div class="feedback-preview">
+          <h3><ion-icon name="chatbubbles-outline"></ion-icon> Recent Feedbacks</h3>
+          <div id="feedback-container">
+            <p>Loading feedbacks...</p>
+          </div>
+          <button id="view-all-feedback-btn">View All Feedback</button>
+        </div>
+      </div>
+
+      <!-- Payments Tab -->
+      <div id="payments" class="tab-content">
+        <h1>Payment Record</h1>
+        <h2>See the payments record here</h2>
+        <button id="open-payment-form">Add New Payment</button>
+        <div id="payment-form-container" class="hidden">
+          <form id="payment-form">
+            <label for="payment-name">Name:</label>
+            <input type="text" id="payment-name" required />
+
+            <label for="payment-email">Email:</label>
+            <input type="email" id="payment-email" required />
+
+            <label for="payment-amount">Amount</label>
+            <input type="number" id="payment-amount" required/>
+
+            <label for="payment-date">Date:</label>
+            <input type="date" id="payment-date" required />
+
+            <label for="payment-method">Payment Method:</label>
+            <input type="text" id="payment-method" required />
+
+            <label for="payment-plan">Plan:</label>
+            <input type="text" id="payment-plan" required />
+
+            <button type="submit" id="submit-payment-btn">Submit</button>
+          </form>
+        </div>
+
+        <div id="payment-preview">
+          <!-- Recent 3–4 payments will be displayed here -->
+        </div>
+
+        <button id="view-all-payments">View All Records</button>
+      </div>
+
+      <!-- Notifications Tab -->
+      <div id="notifications" class="tab-content" style="display:none;">
+        <h1>Notifications</h1>
+        <h2>Send and View Notifications</h2>
+        <div class="notification-form">
+          <textarea id="notif-message" placeholder="Write your message..." required></textarea>
+          <button id="send-notification-btn">Send Notification</button>
+        </div>
+
+        <h3>See Notifications</h3>
+        <div id="notification-list">  
+          <!-- Notifications will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Store Tab -->
+      <div id="store" class="tab-content" style="display: none;">
+        <h1>Store Inventory</h1>
+        <h2>Add New Product</h2>
+        <form id="product-form">
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="product-name" required />
+
+          <label for="product-brand">Brand:</label>
+          <input type="text" id="product-brand" required />
+
+          <label for="product-expiry">Expiry Date:</label>
+          <input type="date" id="product-expiry" required />
+
+          <label for="product-image">Upload Image:</label>
+          <input type="file" id="product-image" accept="image/*" required />
+
+          <button type="submit" id="submit-product-btn">Add Product</button>
+        </form>
+
+        <h3>Product Preview</h3>
+        <div id="product-preview">
+          <!-- Product items will show here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="admin.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

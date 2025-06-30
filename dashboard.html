@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Any Time Fitness Gym</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+  <div class="dashboard-header">
+    <h1>Any Time Fitness Gym</h1>
+    <!-- Notification Icon -->
+    <ion-icon name="notifications-outline" class="icon-btn" id="notif-toggle"></ion-icon>
+    <!-- Hamburger Menu Icon -->
+    <ion-icon name="menu-outline" class="icon-btn" id="menu-toggle"></ion-icon>
+    <button id="logout-btn">Logout</button>
+  </div>
+      
+      
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <span class="close-btn" id="close-sidebar">
+          <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <ul>
+          <li class="active">
+            <ion-icon name="home-outline"></ion-icon> Home
+          </li>
+          <li onclick="location.href='payment.html'">
+            <ion-icon name="card-outline"></ion-icon> Payments
+          </li>
+          <li onclick="location.href='workout.html'">
+            <ion-icon name="barbell-outline"></ion-icon> Workout Routine
+          </li>
+          <li onclick="location.href='diet.html'">
+            <ion-icon name="restaurant-outline"></ion-icon> Diet Log
+          </li>
+          <li onclick="location.href='store.html'">
+            <ion-icon name="cart-outline"></ion-icon> Store
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Section -->
+    <div class="main-section">
+      <!-- Greeting + Membership -->
+      <section class="welcome-box">
+        <h2>Hello <span id="username">User</span>,</h2>
+        <p>Welcome to your dashboard!</p>
+        <p>Membership Status: <strong id="membership-status">Loading...</strong></p>
+
+        <div class="stat-card">
+          <h4>Joined</h4>
+          <p>January 2024</p>
+        </div>
+
+        <div class="stat-card">
+          <h4>Goals</h4>
+          <p>Fat Loss</p>
+        </div>
+
+        <!-- Tips Section -->
+      <div class="tips-section">
+        <h3>Today's Tip</h3>
+        <div class="tip-box">
+          <p>⚡ Stay hydrated throughout the day. Aim for at least 2.5 liters of water!</p>
+        </div>
+      </div>
+      </section>
+
+      <!-- Notifications Section -->
+      <section class="notification-section">
+        <h3>Notifications</h3>
+        <div id="notification-list" class="notification-list">
+          <!-- Notification boxes will be injected here -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

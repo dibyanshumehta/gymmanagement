@@ -1,0 +1,857 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #0c0b0b;
+  color: #f5f5f5;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar ul li {
+  width: 220px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #000000; /* Black buttons */
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: white;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #32cd32; /* Light green */
+}
+
+/* Main section */
+.main-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-left: 220px;
+  background-color: #0c0b0b;
+  min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #32cd32;
+  padding: 15px 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 1000;
+}
+
+.dashboard-header h1 {
+  font-size: 22px;
+}
+
+#logout-btn {
+  padding: 8px 16px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#logout-btn:hover {
+  background-color: #c62828;
+}
+
+/* Greeting */
+.welcome-box {
+  background-color: #000000; /* dark box */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  color: #f5f5f5;
+  margin-left: -170px;
+}
+
+.welcome-box h2 {
+  margin-bottom: 5px;
+  color: #32cd32;
+}
+
+.welcome-box p {
+  margin-bottom: 20px;
+  color: #dddddd;
+}
+
+/* Quick Stats Section */
+.quick-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stat-box {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-left: 5px solid #32cd32;
+  padding: 15px 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  flex: 1;
+}
+
+.stat-box h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.stat-box p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Tips Section */
+.tips-section {
+  margin-top: 30px;
+  background-color: #121212;
+  border-left: 5px solid #32cd32;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tips-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #32cd32;
+}
+
+.tips-section ul {
+  list-style: disc inside;
+  padding-left: 10px;
+}
+
+.tips-section li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #ccc;
+}
+
+
+/* Payment History Box*/
+.payment-box {
+  background-color: #000000; /* dark box */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  color: #f5f5f5;
+  margin-left: -170px;
+}
+
+.payment-box h2 {
+  margin-bottom: 5px;
+  color: #32cd32;
+}
+
+.payments-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-left: 170px;
+}
+
+.payment-box p {
+  color: #ccc;
+}
+
+/* Workout Box*/
+.workout-box {
+  background-color: #000000; /* dark box */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  color: #f5f5f5;
+  margin-left: -170px;
+}
+
+.workout-box h2 {
+  margin-bottom: 5px;
+  color: #32cd32;
+}
+
+.workout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.workout-box p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+/* Workout input and button */
+.workout-textarea {
+  width: 100%;
+  padding: 10px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #32cd32;
+  border-radius: 6px;
+  resize: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.workout-btn {
+  background: #32cd32;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.workout-btn:hover {
+  background: #28a428;
+}
+
+/* Workout preview */
+.workout-preview-box {
+  background-color: #1a1a1a;
+  padding: 12px 18px;
+  border-left: 4px solid #32cd32;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: #f5f5f5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+#workout-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+#add-workout-btn {
+  padding: 8px 15px;
+  background-color: #32cd32;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.workout-preview-box {
+  background-color: #000;
+  border-left: 4px solid #32cd32;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workout-preview-box p {
+  margin: 0;
+  color: #ccc;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* Diet Box Container */
+.diet-box {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  color: #f5f5f5;
+  margin-left: -170px;
+}
+
+/* Diet Box Heading */
+.diet-box h2 {
+  color: #32cd32;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #32cd32;
+  padding-bottom: 5px;
+}
+
+/* Diet Textarea */
+#diet-input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  background-color: #1c1c1c;
+  border: 1px solid #32cd32;
+  color: #f5f5f5;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+/* Add Diet Button */
+#add-diet-btn {
+  background-color: #32cd32;
+  color: #000;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#add-diet-btn:hover {
+  background-color: #28a428;
+}
+
+/* Diet Preview Section */
+#diet-preview {
+  margin-top: 20px;
+}
+
+.diet-preview-box {
+  background-color: #000;
+  border-left: 4px solid #32cd32;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diet-preview-box p {
+  margin: 0;
+  color: #ccc;
+}
+
+.diet-preview-box .delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.diet-preview-box button {
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background-color: #e74c3c;  /* Red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 500px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  color: black;
+}
+
+
+/* Supplement Box Box*/
+.store-section {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 40px 20px;
+  margin-left: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: calc(100% - 260px);
+  color: #f5f5f5;
+}
+
+.store-box {
+  background-color: #000000; /* dark box */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 100px 0 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 60%;
+  color: #f5f5f5;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.store-box h2 {
+  margin-bottom: 5px;
+  color: #32cd32;
+}
+
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.store-box p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+/* Notification Section Box */
+.notification-section {
+  width: 100%;
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-top: 20px;
+  color: white;
+  position: relative; /* mobile default */
+  right: auto;
+  top: auto;
+  z-index: 100;
+}
+
+/* Heading */
+.notification-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #32cd32;
+}
+
+/* List container */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #32cd32 transparent;
+}
+
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+.notification-list::-webkit-scrollbar-thumb {
+  background-color: #32cd32;
+  border-radius: 3px;
+}
+
+/* Notification item */
+.notification-list .notification-box {
+  background-color: #1f1f1f;
+  padding: 10px 15px;
+  border-left: 4px solid #32cd32;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.notification-box h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.notification-box p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .dashboard-header {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .main-section {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    height: auto;
+    position: relative;
+    background-color: #242526;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .sidebar ul li {
+    width: 90%;
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  .payment-box,
+  .notification-section {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .notification-section {
+    width: 100%;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .notification-section {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    width: 300px;
+    margin-top: 0;
+  }
+
+  .main-section {
+    padding-right: 340px; /* adjust if fixed box overlaps content */
+  }
+}
+
+/* Ionicon buttons in header */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn {
+  font-size: 24px;
+  color: #32cd32;
+  cursor: pointer;
+}
+
+/* Sidebar close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+}
+
+/* Ionicons in sidebar */
+.sidebar ion-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+/* Sidebar slide effect for mobile */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    background-color: #000;
+    width: 260px;
+    padding-top: 100px;
+    z-index: 999;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .sidebar.show {
+    right: 0;
+  }
+
+  .close-btn {
+    display: block;
+  }
+
+  .main-section {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .dashboard-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    background-color: #000;
+    z-index: 1000;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  #logout-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .notification-section {
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: #111;
+    z-index: 998;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .notification-section.show {
+    transform: translateY(0);
+  }
+}
+
+/* Ensure notification toggles above other content */
+.notification-section {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hide mobile icons (hamburger & notification) on desktop */
+#menu-toggle,
+#notif-toggle {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .main-section {
+    margin-left: 0;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    background-color: #000;
+    height: 100vh;
+    padding-top: 100px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .sidebar.show {
+    right: 0;
+  }
+
+  .sidebar ul li {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .close-btn {
+    display: block;
+  }
+
+  .dashboard-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px 20px;
+    background-color: #000;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  #logout-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .welcome-box,
+  .payment-box,
+  .diet-box,
+  .workout-box,
+  .store-box {
+    margin: 80px 0 20px;
+    width: 100%;
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .payments-list {
+    margin-left: 0;
+  }
+
+  .store-section {
+    margin: 80px 0 20px;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .quick-stats {
+    flex-direction: column;
+  }
+
+  .stat-box {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .store-box {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .notification-section {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    transform: translateY(-100%);
+    z-index: 999;
+  }
+
+  .notification-section.show {
+    transform: translateY(0);
+  }
+
+  .notification-section h3 {
+    font-size: 16px;
+  }
+
+  #menu-toggle,
+  #notif-toggle {
+    display: inline-block;
+  }
+
+  .icon-btn {
+    font-size: 22px;
+  }
+
+  .diet-preview-box,
+  .workout-preview-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .delete-btn {
+    margin-left: 0 !important;
+    align-self: flex-end;
+  }
+
+  .close-btn {
+    display: block;
+    color: #32cd32;
+  }
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Any Time Fitness Gym</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="index">
+
+  <h1>Any Time Fitness- Gym</h1>
+  <div class="container">
+    <div class="form-box" id="login-box">
+      <h2>Login</h2>
+      <input type="email" id="login-email" placeholder="Email" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button id="login-btn">Login</button>
+      <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+      <button id="login-google" class="google-btn">Sign in with Google</button>
+    </div>
+
+    <div class="form-box" id="register-box" style="display:none">
+      <h2>Register</h2>
+      <input type="text" id="register-name" placeholder="Full Name" />
+      <input type="email" id="register-email" placeholder="Email" />
+      <input type="password" id="register-password" placeholder="Password" />
+      <button id="register-btn">Register</button>
+      <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+      <button id="register-google" class="google-btn">Sign in with Google</button>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
