@@ -8,7 +8,7 @@ Website Link- https://dibyanshugym.netlify.app/
 ## 🔧 Features
 
 - User registration/login (Firebase Auth)
-- Fee receipt generation and next due date
+- Fee receipt generation.
 - Workout & diet logs
 - Admin panel for notifications and member management
 - Responsive design for all screen sizes
